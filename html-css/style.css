@@ -1,0 +1,305 @@
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+ul,
+li,
+ol {
+    list-style: none;
+}
+
+img {
+    vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: inherit;
+    font-size: inherit;
+}
+
+html,
+body {
+    background: url(../assets/background/forestry-home-1.jpg);
+    font-family: 'Roboto Condensed';
+    background-size: auto;
+    background-repeat: no-repeat;
+    line-height: 1;
+    height: 100%;
+    color: black;
+    font-size: 18px;
+}
+
+.wrapper {
+    background-color: white;
+    opacity: 0.8;
+    min-height: 100%;
+    overflow: hidden;
+}
+
+._container {
+    max-width: 1046px;
+    margin: 0 auto;
+    padding: 0px 15px;
+    box-sizing: content-box;
+}
+
+.header {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 50;
+}
+
+.header__container {
+    display: flex;
+    min-height: 104px;
+    align-items: center;
+}
+
+.title {
+    font-size: 30px;
+    font-weight: 700;
+    color: inherit;
+}
+
+.title span {
+    color: rgb(127, 200, 17);
+}
+
+.header__burgerMenu {
+    width: 50px;
+    height: 50px;
+    background: url(../assets/icons/menu-icon.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: none;
+}
+
+.header__navigation {
+    display: block;
+    margin: 0px 0px 0px 130px;
+}
+
+
+@media (max-width:1030px) {
+    .header__navigation {
+        margin: 0px 0px 0px 70px;
+    }
+}
+
+@media (max-width: 950px) {
+    .header__navigation {
+        margin: 0px 0px 0px 40px;
+    }
+}
+
+@media (max-width: 900px) {
+    .header__navigation {
+        display: none;
+    }
+}
+
+.navigation {
+    padding: 5px 0;
+}
+
+.navigation__list {
+    flex-wrap: wrap;
+    display: flex;
+}
+
+.navigation__item {}
+
+.navigation__item:not(:last-child) {
+    margin: 0px 24px 0px 0px;
+}
+
+.navigation__link {
+    color: rgb(115, 95, 95);
+    line-height: calc(40/18 *100%);
+}
+
+.navigation__link:hover {
+    color: rgb(127, 200, 17);
+    transition: all 0.5s;
+}
+
+.searchAndShoppingBasket {
+    display: flex;
+    align-items: right;
+}
+
+.searchAndShoppingBasket__search {
+    width: 50px;
+    height: 50px;
+    background: url(../assets/icons/search-svgrepo-com.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 0px 0px 0px 120px;
+}
+
+.searchAndShoppingBasket__ShoppingBasket {
+    width: 50px;
+    height: 50px;
+    background: url(../assets/icons/basket-svgrepo-com.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 0px 0px 0px 30px;
+}
+
+@media (max-width:1030px) {
+    .searchAndShoppingBasket__search {
+        margin: 0px 0px 0px 100px;
+    }
+
+    .searchAndShoppingBasket__ShoppingBasket {
+        margin: 0px 0px 0px 20px;
+    }
+}
+
+@media (max-width: 950px) {
+    .searchAndShoppingBasket__search {
+        margin: 0px 0px 0px 70px;
+    }
+
+    .searchAndShoppingBasket__ShoppingBasket {
+        margin: 0px 0px 0px 10px;
+    }
+}
+
+@media (max-width: 900px) {
+    .searchAndShoppingBasket__search {
+        display: none;
+    }
+
+    .searchAndShoppingBasket__ShoppingBasket {
+        display: none;
+    }
+}
+
+.footer {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 100%;
+    z-index: 50;
+    background-color: white;
+}
+
+.footer__title {
+    font-size: 30px;
+    font-weight: 700;
+    color: inherit;
+
+}
+
+.footer__title span {
+    color: rgb(127, 200, 17);
+}
+
+.footer__container {
+    display: flex;
+    min-height: 104px;
+    align-items: center;
+}
+
+.footer__icons-gitAndCourse {
+    display: flex;
+}
+
+.icon:not(:last-child) {
+    margin: 0px 0px 0px 15px;
+}
+
+.footer__iconsGit-first {
+    width: 50px;
+    height: 50px;
+    background: url(../assets/icons/Octicons-mark-github.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.footer__iconsGit-second {
+    width: 50px;
+    height: 50px;
+    background: url(../assets/icons/Octicons-mark-github.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.footer__iconsCourse {
+    width: 70px;
+    height: 70px;
+    background: url(../assets/icons/rs_school_js.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 15px 0px 0px 0px;
+}
+
+.footer__icons-year {
+    font-weight: 400;
+    font-size: 30px;
+    margin: 15px 0px 0px 25px;
+}
+
+.main {
+
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 14.15%;
+    z-index: 50;
+}
+
+.main-block {}
+
+.main__container {
+
+    display: flex;
+    min-height: 104px;
+    align-items: center;
+}
+
+.main__filter {}
+
+.main__filter h2 {
+    font-size:
+        20px;
+    font-weight: 700;
+    margin: 0px 0px 15px 0px;
+}
+
+.main__filter__categories {
+    display: flex;
+    align-items: left;
+    /* justify-content: center; */
+    flex-direction: column;
+    height: 177px;
+    overflow-y: scroll;
+}
+
+.main__filter-categories-item {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 25px;
+}
+
+.main__filter-categories-checkbox {
+    margin-right: 5%;
+}
