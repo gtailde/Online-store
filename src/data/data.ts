@@ -1,6 +1,6 @@
 interface Products { id: number, title: string, description: string, price: string, discountPercentage: string, rating: number, stock: number, brand: string, category: string, img: Array<string> }
 
-const data : Products[][] = [
+const data: Products[][] = [
   // Beds
   [
     {id: 1, title: 'NORDLI Bed', description: `There’s plenty of space in the drawers for clothes, extra duvets and sweet dreams – and you can position the headboard’s box and shelf so your favourite book is easy to reach. A perfect combination!`, price: '300$', discountPercentage: '8%', rating: 5.0, stock: 9, brand: 'IKEA', category: 'Beds', img: ['https://www.ikea.com/gb/en/images/products/nordli-bed-frame-w-storage-and-headboard-anthracite__1151020_pe884726_s5.jpg?f=s', 'https://www.ikea.com/gb/en/images/products/nordli-bed-frame-w-storage-and-headboard-anthracite__0800118_ph165864_s5.jpg?f=s']},
