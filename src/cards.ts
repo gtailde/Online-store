@@ -66,7 +66,7 @@ function CardProd() {
             ///////////////////////////
             const Img: HTMLImageElement | String = document.createElement('img');
             Img.className = 'products-card__img';
-            Img.src = `${MassValue[j].img}`
+            Img.src = `${MassValue[j].img[0]}`
             Card?.prepend(Img);
 
 
