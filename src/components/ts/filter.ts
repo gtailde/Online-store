@@ -174,13 +174,93 @@ for (let i = 0; i <= uniqueCat.length; i++) {
             createCard(massCatFirst);
         }
 
-        if (inputFilter.checked === false) {
-            massCatFirst.filter((el, i) => {
-                return massCatFirst.indexOf(el) === i;
-            })
+        // if (inputFilter.checked === false) {
+        //     // if (inputFilter.nextSibling?.nodeValue === "BEDS") {
+        //     //     massCatFirst.slice(data[0])
+        //     //     createCard(massCatFirst);
 
-            createCard(massCatFirst);
-        }
+
+        //     // } else if (inputFilter.nextSibling?.nodeValue === "DRESSERS") {
+        //     //     massCatFirst.push(...data[1]); createCard(massCatFirst)
+
+        //     // } else if (inputFilter.nextSibling?.nodeValue === "TABLES") {
+        //     //     massCatFirst.push(...data[2]); createCard(massCatFirst);
+
+
+        //     // } else if (inputFilter.nextSibling?.nodeValue === "CABINETS") {
+        //     //     massCatFirst.push(...data[3]);
+        //     //     createCard(massCatFirst);
+
+        //     // } else if (inputFilter.nextSibling?.nodeValue === "BEDSIDE TABLES") {
+        //     //     massCatFirst.push(...data[4]);
+        //     //     createCard(massCatFirst);
+
+        //     // } else if (inputFilter.nextSibling?.nodeValue === "SOFAS") {
+        //     //     massCatFirst.push(...data[5]);
+        //     //     createCard(massCatFirst);
+
+        //     // } else if (inputFilter.nextSibling?.nodeValue === "CHAIRS") {
+        //     //     massCatFirst.push(...data[6]);
+        //     //     createCard(massCatFirst);
+
+        //     // } else if (inputFilter.nextSibling?.nodeValue === "SHOWCASES") {
+        //     //     massCatFirst.push(...data[7])
+        //     //     massCatFirst.filter((el, i) => {
+        //     //         return massCatFirst.indexOf(el) === i;
+        //     //     })
+
+        //     //     createCard(massCatFirst);
+
+        //     // } else if (inputFilter.nextSibling?.nodeValue === "KITCHENS") {
+        //     //     massCatFirst.push(...data[8]);
+        //     //     createCard(massCatFirst);
+
+        //     // } else if (inputFilter.nextSibling?.nodeValue === "COFFEE TABLES") {
+        //     //     massCatFirst.push(...data[9]);
+        //     //     createCard(massCatFirst);
+
+        //     // } else if (inputFilter.nextSibling?.nodeValue === "DRESSING TABLES") {
+        //     //     massCatFirst.push(...data[10]);
+        //     //     createCard(massCatFirst);
+
+        //     // } else if (inputFilter.nextSibling?.nodeValue === "TV STANDS") {
+        //     //     massCatFirst.push(...data[11]);
+        //     //     createCard(massCatFirst);
+
+        //     // } else if (inputFilter.nextSibling?.nodeValue === "BUFFETS") {
+        //     //     massCatFirst.push(...data[12]);
+        //     //     createCard(massCatFirst);
+
+        //     // } else if (inputFilter.nextSibling?.nodeValue === "CUPBOARDS") {
+        //     //     massCatFirst.push(...data[13]);
+        //     //     createCard(massCatFirst);
+
+        //     // } else if (inputFilter.nextSibling?.nodeValue === "SHELVES FOR BOOKS") {
+        //     //     massCatFirst.push(...data[14]);
+        //     //     createCard(massCatFirst);
+
+        //     // } else if (inputFilter.nextSibling?.nodeValue === "POUFS OR ARMCHAIRS BAGS") {
+        //     //     massCatFirst.push(...data[15]);
+        //     //     createCard(massCatFirst);
+
+        //     // } else if (inputFilter.nextSibling?.nodeValue === "HANGERS FOR CLOTHES") {
+        //     //     massCatFirst.push(...data[16]);
+        //     //     createCard(massCatFirst);
+
+        //     // } else if (inputFilter.nextSibling?.nodeValue === "SHOE CABINET") {
+
+        //     //     massCatFirst.push(...data[17]);
+        //     //     createCard(massCatFirst);
+        //     // } else if (inputFilter.nextSibling?.nodeValue === "MIRROR") {
+
+        //     //     massCatFirst.push(...data[18]);
+        //     //     createCard(massCatFirst);
+        //     // } else if (inputFilter.nextSibling?.nodeValue === "MATTRESSES") {
+
+        //     //     massCatFirst.push(...data[19]);
+        //     //     createCard(massCatFirst);
+        //     // }
+        // }
     })
 
     // if (inputFilter.checked === false) {
