@@ -3,6 +3,7 @@ interface Products { id: number, title: string, description: string, price: stri
 const data: Products[][] = [
   // Beds
   [
+
     {id: 1, title: 'NORDLI Bed', description: `There’s plenty of space in the drawers for clothes, extra duvets and sweet dreams – and you can position the headboard’s box and shelf so your favourite book is easy to reach. A perfect combination!`, price: '300$', discountPercentage: '8%', rating: 5.0, stock: 9, brand: 'IKEA', category: 'Beds', img: ['https://www.ikea.com/gb/en/images/products/nordli-bed-frame-w-storage-and-headboard-anthracite__1151020_pe884726_s5.jpg?f=s', 'https://www.ikea.com/gb/en/images/products/nordli-bed-frame-w-storage-and-headboard-anthracite__0800118_ph165864_s5.jpg?f=s'], total: 1},
     {id: 2, title: 'Yardley Ottoman Bed', description: 'This front opening ottoman is simple yet effective. Made in a black faux leather or grey fabric with a subtle stitched detailing, the Yardley will add character to any bedroom without taking away from the decor of any bedroom. With a straight-backed headboard, this space saving bed will sit plush against any wall.', price: '350$', discountPercentage: '14%', rating: 5, stock: 14, brand: 'Dreams', category: 'Beds', img: ['https://i1.adis.ws/i/dreams/251-00297_main-shot_01_yardley-grey-fabric-upholstered-bed-frame?w=750&h=549&sm=c', 'https://i1.adis.ws/i/dreams/251-00297_main-shot_02_yardley-grey-fabric-upholstered-bed-frame?w=750&h=549&sm=c'], total: 1},
     {id: 3, title: 'Osaka Ottoman TV Bed', description: 'Do you love watching TV in bed? Our super stylish Osaka Upholstered Ottoman TV Bed Frame has a luxuriously panelled comfy headboard and a slim foot end that cleverly hides a SMART TV inside it. It seamlessly raises up and down from the foot end for a cinematic experience.', price: '2000$', discountPercentage: '3%', rating: 5, stock: 2, brand: 'Dreams', category: 'Beds', img: ['https://i1.adis.ws/i/dreams/251-00300_main-shot_01_osaka-ottoman-tv-bed-grey-v2?w=750&h=549&sm=c', 'https://i1.adis.ws/i/dreams/251-00300_main-shot_03_osaka-ottoman-tv-bed-grey?w=750&h=549&sm=c', 'https://i1.adis.ws/i/dreams/251-00300_main-shot_04_osaka-ottoman-tv-bed-grey-v2?w=750&h=549&sm=c'], total: 1},
@@ -304,3 +305,4 @@ const allTitle: Array<string> = ['NORDLI Bed', 'Yardley Ottoman Bed', 'Osaka Ott
   'Anlowo 8 inches Foam Mattress'
 ]
 export { data, allCategories, allManufacturers, allTitle, Products };
+
