@@ -38,6 +38,7 @@ module.exports = {
         getElement: path.resolve(__dirname, './app/getElement.ts'),
         productCart: path.resolve(__dirname, './app/product-cart.ts'),
         basketSet: path.resolve(__dirname, './app/basket-set.ts')
+
     },
     output: {
         path: path.resolve(__dirname, './src/mainapp'),
