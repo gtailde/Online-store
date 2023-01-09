@@ -183,10 +183,12 @@ const data: Products[][] = [
     {id: 6, title: 'Anlowo 8 inches Foam Mattress', description: 'Have you been looking forward to being embraced all the time to sleep? If you happily say "Yes!“ Congratulations you finding the right memory foam mattress for you! ', price: '200$', discountPercentage: '12%', rating: 4.0, stock: 7, brand: 'Anlowo', category: 'Mattresses', img: ['https://secure.img1-cg.wfcdn.com/im/96380402/resize-h755-w755%5Ecompr-r85/2283/228378522/Anlowo+8+inches+Gel+Memory+Foam+Mattress+with+Breathable+Cover+%26+Medium+Feeling.jpg', 'https://secure.img1-cg.wfcdn.com/im/19130503/resize-h755-w755%5Ecompr-r85/2283/228378529/Anlowo+8+inches+Gel+Memory+Foam+Mattress+with+Breathable+Cover+%26+Medium+Feeling.jpg', 'https://secure.img1-cg.wfcdn.com/im/40417561/resize-h755-w755%5Ecompr-r85/2248/224855321/Anlowo+8+inches+Gel+Memory+Foam+Mattress+with+Breathable+Cover+%26+Medium+Feeling.jpg'], total: 1},
   ], 
 
+
 ];
 
 const allCategories: Array<string> = ['Beds', 'Dressers', 'Tables', 'Cabinets', 'Bedside tables', 'Sofas', 'Chairs', 'Showcases', 'Kitchens furniture', 'Coffee tables', 'Dressing tables', 'TV stands', 'Buffets', 'Cupboards', 'Shelves for books', 'Poufs or armchairs bags', 'Hangers for clothes', 'Shoe cabinet', 'Mirror', 'Mattresses'];
 const allManufacturers: Array<string> = ['Prestol', 'IKEA', 'ARAN Cucine', 'Dreams', 'Swoon', 'Next', 'Laura Ashley', 'Carson Carrington', 'Carlisle', 'Wade Logan', 'George Oliver', 'Lark Manor', 'AllModern', 'Winston Porter', 'Red Barrel Studio', 'Mercer41', 'Loon Peak', 'Anlowo', 'Latitude Run', 'East Urban Home', 'Union Rustic', 'Steelside', 'Wade Logan', 'Bungalow Rose', 'Rosalind Wheeler', 'Rebrilliant', 'Gracie Oaks', 'Ebern Designs', 'Zipcode Design', 'House of Hampton', 'Mack & Milo', 'Corrigan Studio'];
+
 const allTitle: Array<string> = ['NORDLI Bed', 'Yardley Ottoman Bed', 'Osaka Ottoman TV Bed', 'Swoon Klee Frame', 'Bronx Wooden Frame', 'Laura Ashley Deighton Bed Frame', 'KULLEN Chest',
   'Carson Carrington Bandene',
   'Carson Carrington Narvik Dark',
@@ -303,5 +305,4 @@ const allTitle: Array<string> = ['NORDLI Bed', 'Yardley Ottoman Bed', 'Osaka Ott
   'Anlowo 8 inches Foam Mattress'
 ]
 export { data, allCategories, allManufacturers, allTitle, Products };
-
 
