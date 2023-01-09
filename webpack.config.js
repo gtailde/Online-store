@@ -31,8 +31,13 @@ module.exports = {
     entry: {
         dropdown: path.resolve(__dirname, './src/components/js/dropdown.js'),
         dualSlider: path.resolve(__dirname, './src/components/js/dual-slider.js'),
-        Search: path.resolve(__dirname, './src/components/js/search.js'),
-        cards: path.resolve(__dirname, './src/cards.ts')
+        Search: path.resolve(__dirname, './app/search.ts'),
+        cards: path.resolve(__dirname, './app/cards.ts'),
+        loader: path.resolve(__dirname, './app/loader.ts'),
+        listener: path.resolve(__dirname, './app/listener.ts'),
+        getElement: path.resolve(__dirname, './app/getElement.ts'),
+        productCart: path.resolve(__dirname, './app/product-cart.ts'),
+        basketSet: path.resolve(__dirname, './app/basket-set.ts')
     },
     output: {
         path: path.resolve(__dirname, './src/mainapp'),
