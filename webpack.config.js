@@ -41,6 +41,7 @@ module.exports = {
         searchCard: path.resolve(__dirname, './src/components/ts/searchCard.ts'),
         sort: path.resolve(__dirname, './src/components/ts/sortValue.ts'),
         filter: path.resolve(__dirname, './src/components/ts/filter.ts')
+
     },
     output: {
         path: path.resolve(__dirname, './src/mainapp'),

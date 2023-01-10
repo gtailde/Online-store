@@ -2,10 +2,12 @@ import { data, allCategories, allManufacturers, allTitle } from '../../data/data
 import { CardProd } from '../../../app/cards';
 const divElement = [...document.querySelectorAll<HTMLElement>('.products-card')!];
 const articleBlock: HTMLElement = document.querySelector('.block-products')!;
+
 const Input: HTMLInputElement = document.querySelector('.search-input')!;
 const InputButton: HTMLButtonElement = document.querySelector('.search-btn')!;
 let boolBtn;
 const BlockProducts: HTMLElement = document.querySelector('.main__block-products')!;
+
 const titleMass = allTitle.map(el => { return el.toLowerCase() });
 function clear() {
     articleBlock.innerHTML = "";
@@ -20,6 +22,7 @@ InputButton.addEventListener('click', () => {
             if (InputValue === el) {
 
                 const indexelement = titleMass.indexOf(el);
+
 
                 allTitle.forEach(el1 => {
                     if (allTitle.indexOf(el1) === indexelement) {
