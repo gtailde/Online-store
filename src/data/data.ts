@@ -302,4 +302,6 @@ const allTitle: Array<string> = ['NORDLI Bed', 'Yardley Ottoman Bed', 'Osaka Ott
   'No-Noise Foam Mattress Infused',
   'Anlowo 8 inches Foam Mattress'
 ]
-export { data, allCategories, allManufacturers, allTitle, Products };
+
+export { data, allCategories, allManufacturers, Products, allTitle};
+

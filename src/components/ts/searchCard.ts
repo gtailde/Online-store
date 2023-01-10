@@ -1,13 +1,13 @@
 import { data, allCategories, allManufacturers, allTitle } from '../../data/data';
-import { CardProd } from './cards';
-console.log(allTitle)
+import { CardProd } from '../../../app/cards';
 const divElement = [...document.querySelectorAll<HTMLElement>('.products-card')!];
+const articleBlock: HTMLElement = document.querySelector('.block-products')!;
 
 const Input: HTMLInputElement = document.querySelector('.search-input')!;
 const InputButton: HTMLButtonElement = document.querySelector('.search-btn')!;
 let boolBtn;
 const BlockProducts: HTMLElement = document.querySelector('.main__block-products')!;
-const articleBlock: HTMLElement = document.querySelector('.block-products')!;
+
 const titleMass = allTitle.map(el => { return el.toLowerCase() });
 function clear() {
     articleBlock.innerHTML = "";
@@ -16,9 +16,14 @@ InputButton.addEventListener('click', () => {
     boolBtn = InputButton.classList.contains('active');
     if (boolBtn = 'true') {
         const InputValue: string[] | string = Input.value.toLowerCase();
+
         titleMass.forEach(el => {
+
             if (InputValue === el) {
+
                 const indexelement = titleMass.indexOf(el);
+
+
                 allTitle.forEach(el1 => {
                     if (allTitle.indexOf(el1) === indexelement) {
                         for (let i = 0; i < data.length; i++) {

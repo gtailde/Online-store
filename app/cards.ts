@@ -63,7 +63,8 @@ function CardProd() {
             Card?.prepend(Img);
         }
     }
-    console.log(data)
 }
 CardProd();
+
+
 export { CardProd, BlockProducts };
