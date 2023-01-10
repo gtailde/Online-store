@@ -63,10 +63,6 @@ function CardProd() {
             Card?.prepend(Img);
         }
     }
-    const getFilterManufacturer = <HTMLDivElement>document.querySelector('main__filter__manufacturers.');
-    const getFilterCategories = <HTMLDivElement>document.querySelector('main__filter__manufacturers.');
-    // loadFilters()
-
 }
 CardProd();
 
