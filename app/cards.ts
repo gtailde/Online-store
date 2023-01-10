@@ -63,6 +63,11 @@ function CardProd() {
             Card?.prepend(Img);
         }
     }
-    console.log(data)
+    const getFilterManufacturer = <HTMLDivElement>document.querySelector('main__filter__manufacturers.');
+    const getFilterCategories = <HTMLDivElement>document.querySelector('main__filter__manufacturers.');
+    // loadFilters()
+
 }
 CardProd();
+
+export { CardProd, BlockProducts };
