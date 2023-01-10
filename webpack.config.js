@@ -38,7 +38,6 @@ module.exports = {
         getElement: path.resolve(__dirname, './app/getElement.ts'),
         productCart: path.resolve(__dirname, './app/product-cart.ts'),
         basketSet: path.resolve(__dirname, './app/basket-set.ts'),
-        filter: path.resolve(__dirname, './src/components/ts/filter.ts'),
         searchCard: path.resolve(__dirname, './src/components/ts/searchCard.ts'),
         sort: path.resolve(__dirname, './src/components/ts/sortValue.ts')
     },

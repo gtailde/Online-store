@@ -1,11 +1,11 @@
-import{ Products } from '../src/data/data';
+import { Products } from '../src/data/data';
 import { arr, basketAdd, basketRemove } from './basket-set';
 
 const mainBlock = document.createElement('div');
 mainBlock.className = 'main__product-card';
 
-function builderCartForProduct(obj: Products){
-  
+function builderCartForProduct(obj: Products) {
+
   let style = <HTMLElement>document.querySelector('style');
   style.innerHTML = `.main__page-block{ display: none;} 
   .searchAndShoppingBasket__search{ display: none;}
@@ -22,7 +22,7 @@ function builderCartForProduct(obj: Products){
   selectImgBlock.className = 'select__image-block';
 
   const mainIMG = document.createElement('img');
-  mainIMG.src = obj.img[0];  
+  mainIMG.src = obj.img[0];
   mainIMG.className = 'select__img';
 
   selectImgBlock.append(mainIMG);
@@ -127,13 +127,13 @@ function builderCartForProduct(obj: Products){
   const DropOnCart = document.createElement("button");
   // DropOnCart.className = 'product-card__drop-on-cart';
   arr.forEach((name) => {
-    if(name.title === obj.title){
+    if (name.title === obj.title) {
       DropOnCart.className = 'product-card__drop-on-cart remove__product-from-cart';
       DropOnCart.textContent = 'Remove from cart';
     };
   });
 
-  if(DropOnCart.className === ''){
+  if (DropOnCart.className === '') {
     DropOnCart.className = 'product-card__drop-on-cart';
     DropOnCart.textContent = 'Drop on cart';
   };
@@ -147,7 +147,7 @@ function builderCartForProduct(obj: Products){
 
   const main = <HTMLElement>document.querySelector('.main');
   main.append(mainBlock);
-  
+
   // replace img
 
   const getImgBlock = document.querySelectorAll('.galery__img-block');
@@ -160,26 +160,26 @@ function builderCartForProduct(obj: Products){
       replaceImg.src = `${getImg[i].getAttribute('src')}`;
       prevEl.className = 'galery__img';
       prevEl = getImg[i];
-      getImg[i].className = 'galery__img img__active'; 
+      getImg[i].className = 'galery__img img__active';
     });
   });
 
   const drop = <HTMLElement>document.querySelector('.product-card__drop-on-cart');
-  
+
   drop.addEventListener('click', el => {
-    if(drop.className === 'product-card__drop-on-cart remove__product-from-cart'){ 
-      basketRemove(obj); 
+    if (drop.className === 'product-card__drop-on-cart remove__product-from-cart') {
+      basketRemove(obj);
       drop.textContent = 'Drop on cart';
     } else {
       drop.textContent = 'Remove from cart';
       basketAdd(obj);
     };
     drop.classList.toggle('remove__product-from-cart');
-  }); 
+  });
 
   // listen to cancell 
 
-  const clear = <HTMLDivElement>document.querySelector('.main__product-card'); 
+  const clear = <HTMLDivElement>document.querySelector('.main__product-card');
   const cancell = <HTMLDivElement>document.querySelector('.cancel__product-card');
   cancell.addEventListener('click', e => {
     style.innerHTML = `.main__page-block{ display: flex;} 
@@ -188,12 +188,12 @@ function builderCartForProduct(obj: Products){
     .main__basket{display: none;}`
     clear.innerHTML = '';
   });
-  
+
   document.querySelector('.searchAndShoppingBasket__ShoppingBasket')?.addEventListener('click', el => {
     clear.innerHTML = '';
   });
-  
+
 
 }
 
-export{ builderCartForProduct };
+export { builderCartForProduct };

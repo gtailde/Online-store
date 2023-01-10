@@ -10,18 +10,18 @@ const mainBasket = <HTMLDivElement>document.querySelector('.searchAndShoppingBas
 
 document.querySelectorAll('.products-card').forEach((el, ind) => {
   el.addEventListener('click', e => {
-    const getEL = getElement(`${nameELem[ind].textContent}`); 
-    if(e.composedPath()[0] === basket[ind]){
+    const getEL = getElement(`${nameELem[ind].textContent}`);
+    if (e.composedPath()[0] === basket[ind]) {
       basket[ind].classList.toggle('products-card__in-basket');
       basket[ind].className.includes('products-card__in-basket') ? basketAdd(getEL) : basketRemove(getEL);
     } else {
       builderCartForProduct(getEL);
     };
-      
+
   });
 });
 
 mainBasket.addEventListener('click', target => {
   let style = <HTMLElement>document.querySelector('style');
-  if(!style.textContent?.includes('.main__basket{ display: block;}')) loadBasket();
+  if (!style.textContent?.includes('.main__basket{ display: block;}')) loadBasket();
 });

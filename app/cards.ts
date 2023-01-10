@@ -1,7 +1,8 @@
 import { data, allCategories, allManufacturers } from "../src/data/data";
 const BlockProducts: HTMLElement | null = document.querySelector('.main__block-products');
 import { loadFilters } from "./loader";
-
+import { search } from "../src/components/ts/sortValue";
+search();
 loadFilters()
 function CardProd() {
     for (let i = 0; i < data.length; i++) {

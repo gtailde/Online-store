@@ -8,7 +8,10 @@ const InputButton: HTMLButtonElement = document.querySelector('.search-btn')!;
 let boolBtn;
 const BlockProducts: HTMLElement = document.querySelector('.main__block-products')!;
 const articleBlock: HTMLElement = document.querySelector('.block-products')!;
+const cancle = document.querySelector('.cancel-btn');
 const titleMass = allTitle.map(el => { return el.toLowerCase() });
+const mass = data.flat(3);
+console.log(mass);
 function clear() {
     articleBlock.innerHTML = "";
 }
@@ -16,6 +19,71 @@ InputButton.addEventListener('click', () => {
     boolBtn = InputButton.classList.contains('active');
     if (boolBtn = 'true') {
         const InputValue: string[] | string = Input.value.toLowerCase();
+        const mas1 = mass.map(el => { if (InputValue === el.brand.toLowerCase() || InputValue === el.category.toLowerCase()) { clear(); return el } else { CardProd() } });
+        const mas2 = mas1.filter(el => { return el != undefined; clear() })
+        console.log(mas2);
+
+        for (let i = 0; i < mas2.length; i++) {
+            let mmm = mas2[i]
+            const Card: HTMLElement = document.createElement('div');
+            Card.className = 'products-card';
+            BlockProducts?.prepend(Card);
+            /////////////////////////////
+            const cardFlex: HTMLElement = document.createElement('div');
+            cardFlex.className = 'products-card__flex';
+            Card.prepend(cardFlex);
+            ////////////////////////////
+            const basket: HTMLElement = document.createElement('div');
+            basket.className = 'products-card__basket';
+            cardFlex.prepend(basket);
+            /////////////////////////////
+            const cardPrice: HTMLElement = document.createElement('div');
+            cardPrice.className = 'products-card__price';
+            cardFlex.prepend(cardPrice);
+
+            ////////////////////////////
+            const discount: HTMLElement | String = document.createElement('div');
+            discount.className = 'discount';
+            discount.innerHTML = `-${mmm?.discountPercentage}`;
+            cardPrice.prepend(discount);
+            /////////////////////////////   
+
+            const price: HTMLElement | String = document.createElement('h3');
+            price.innerHTML = `${mmm?.price}`;
+            cardPrice.prepend(price);
+
+            /////////////////////////////
+            const rating: HTMLElement | String = document.createElement('div');
+            rating.className = 'products-card__rating';
+            if (mmm?.rating === 5) {
+                rating.innerHTML = `Rating: ${mmm?.rating}/5`
+            }
+            else {
+                rating.innerHTML = `Rating: ${mmm?.rating}/5.0`
+            }
+            Card.prepend(rating);
+            /////////////////////////////
+            const manufacrure: HTMLElement = document.createElement("div");
+            manufacrure.className = 'products-card__manufacturer';
+            Card?.prepend(manufacrure);
+            const manufacrureName: HTMLElement | String = document.createElement('p');
+            manufacrureName.className = 'manufacturer';
+            manufacrureName.innerHTML = `Manufacrer: ${mmm?.brand}`
+            manufacrure.prepend(manufacrureName);
+            ////////////////////////////////////////
+            const CardTitle: HTMLElement = document.createElement('div');
+            CardTitle.className = 'products-card__name';
+            Card?.prepend(CardTitle);
+            const Name = document.createElement('h3');
+            Name.className = 'name';
+            CardTitle?.prepend(Name);
+            Name.innerText = `${mmm?.title}`;
+            ///////////////////////////
+            const Img: HTMLImageElement | String = document.createElement('img');
+            Img.className = 'products-card__img';
+            Img.src = `${mmm?.img[0]}`
+            Card?.prepend(Img);
+        }
         titleMass.forEach(el => {
             if (InputValue === el) {
                 const indexelement = titleMass.indexOf(el);
@@ -97,10 +165,8 @@ InputButton.addEventListener('click', () => {
         });
 
     }
+    if (cancle?.classList.contains('active')) {
+        cancle.addEventListener('click', () => { clear(); CardProd() });
+    }
 })
-
-
-//проверка на строку Обязательно 
-
-// сделать невосприимчивость к регистру и доделать поиск 
 

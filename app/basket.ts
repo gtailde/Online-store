@@ -2,7 +2,7 @@ import { arr, sum, counterInMainPg, Item } from "./basket-set";
 import { data, Products } from "../src/data/data";
 
 const mainBasket = document.createElement('div');
-mainBasket.className = 'main__basket';  
+mainBasket.className = 'main__basket';
 const main = <HTMLElement>document.querySelector('.main');
 
 interface basketDataInterface {
@@ -17,7 +17,7 @@ const basketData: basketDataInterface = {
 
 const loadBasket = (): void => {
 
-  if(arr.length === 0){
+  if (arr.length === 0) {
     basketData.productsCout = '';
     basketData.totalProductsInBasket = '';
   }
@@ -36,14 +36,14 @@ const loadBasket = (): void => {
 
   const cancelBasket = document.createElement('div');
   cancelBasket.className = 'cancel__product-card cancel__basket';
-  
+
   basketBlock.append(cancelBasket);
 
   const basketHeaderTitle = document.createElement('h3');
   basketHeaderTitle.className = 'basket__title';
   basketHeaderTitle.textContent = 'Product in cart';
 
-  basketHeader.append(basketHeaderTitle); 
+  basketHeader.append(basketHeaderTitle);
 
   basketHeader.innerHTML += `<span class="items-counter"> 
   <span class="items-counter__span">Total Items in the cart: </span>${arr.length}</span>`
@@ -82,19 +82,19 @@ const loadBasket = (): void => {
 
   const productInCartBlock = document.createElement('div');
   productInCartBlock.className = 'basket__products-in-cart';
-  
+
   let startEnd: Array<number> = [0, 5];
-  
+
   const loadProduct = (start: number, end: number): void => {
-    arr.forEach((product: Products, i:number) => {
-      if(i <= end && i >= start) {
+    arr.forEach((product: Products, i: number) => {
+      if (i <= end && i >= start) {
         const productInCart = document.createElement('div');
         productInCart.className = 'product-in-cart';
-      
+
         const position = document.createElement('div');
         position.className = 'product-in-cart__position';
         position.textContent = `${i + 1}`;
-        
+
         productInCart.append(position);
 
         const basketImg = document.createElement('img');
@@ -105,7 +105,7 @@ const loadBasket = (): void => {
 
         const infoOfGoods = document.createElement('div');
         infoOfGoods.className = 'informatio-of-goods__block'
-        
+
         const productName = document.createElement('h3');
         productName.className = 'product-in-cart__name';
         productName.textContent = `${product.title}`;
@@ -116,9 +116,9 @@ const loadBasket = (): void => {
         const productInfo = document.createElement('p');
         productInfo.className = 'product-in-cart__information';
         productInfo.textContent = `Brand: ${product.brand}, Category: ${product.category}, Discount: ${product.discountPercentage},\n Rating: ${product.rating}/5.0, InStock: ${product.stock}`
-            
+
         infoOfGoods.append(productInfo);
-      
+
         productInCart.append(infoOfGoods);
 
         const quanityOfGoods = document.createElement('div');
@@ -168,7 +168,7 @@ const loadBasket = (): void => {
 
   const basketFooterInput = document.createElement('div');
   basketFooterInput.className = 'basket-footer__input';
-  
+
   const input = <HTMLInputElement>document.createElement('input');
   input.className = 'basket__input-promo';
   input.type = 'text';
@@ -195,7 +195,7 @@ const loadBasket = (): void => {
 
   const totalPrice = document.createElement('div');
   totalPrice.className = 'basket-footer__total';
-  totalPrice.textContent = `Total: ${sum }$`
+  totalPrice.textContent = `Total: ${sum}$`
 
   dataFromCart.append(totalPrice);
 
@@ -217,13 +217,13 @@ const loadBasket = (): void => {
 
   // listen btn in header
 
-  let count = <HTMLSpanElement>document.querySelector('.basket__page-count'); 
+  let count = <HTMLSpanElement>document.querySelector('.basket__page-count');
   const leftBasket = <HTMLButtonElement>document.querySelector('.basket__btn-left');
   const rightBasket = <HTMLButtonElement>document.querySelector('.basket__btn-right');
   const productContainer = <HTMLDivElement>document.querySelector('.basket__products-in-cart');
 
   leftBasket.addEventListener('click', el => {
-    if(Number(count.textContent) > 1) {
+    if (Number(count.textContent) > 1) {
       productContainer.innerHTML = '';
       remove(count);
       startEnd[0] -= 6;
@@ -233,14 +233,14 @@ const loadBasket = (): void => {
   });
 
   rightBasket.addEventListener('click', target => {
-    if(Number(count.textContent) < Math.ceil(arr.length/6)){ 
+    if (Number(count.textContent) < Math.ceil(arr.length / 6)) {
       productContainer.innerHTML = '';
       add(count);
       startEnd[0] += 6;
       startEnd[1] += 6;
       loadProduct(startEnd[0], startEnd[1]);
 
-      
+
     }
   });
 
@@ -256,7 +256,7 @@ const loadBasket = (): void => {
 
   allBtnAddproduct.forEach((add, i) => {
     add.addEventListener('click', el => {
-      if(Number(allCountOfProduct[i].textContent) < Number(getAllStock[i].textContent?.split(':')[5].trim())) {
+      if (Number(allCountOfProduct[i].textContent) < Number(getAllStock[i].textContent?.split(':')[5].trim())) {
         allCountOfProduct[i].textContent = String(Number(allCountOfProduct[i].textContent) + 1);
         getProductPrice[i].textContent = String(Number(arr[i].price.split('$')[0]) * Number(allCountOfProduct[i].textContent)) + '$';
         getTotal.textContent = 'Total: ' + String(Number(getTotal.textContent?.split(':')[1].split('$')[0].trim()) + Number(arr[i].price.split('$')[0])) + '$';
@@ -264,13 +264,14 @@ const loadBasket = (): void => {
 
         arr[i].total += 1;
         basketData.productsCout = sum + Number(arr[i].price.split('$')[0]);
-        basketData.totalProductsInBasket = Item + 1;} 
+        basketData.totalProductsInBasket = Item + 1;
+      }
     });
-  }); 
+  });
 
   allBtnRemoveProduct.forEach((remove, i) => {
     remove.addEventListener('click', el => {
-      if(Number(allCountOfProduct[i].textContent) > 1) {
+      if (Number(allCountOfProduct[i].textContent) > 1) {
         allCountOfProduct[i].textContent = String(Number(allCountOfProduct[i].textContent) - 1);
         getProductPrice[i].textContent = String(Number(arr[i].price.split('$')[0]) * Number(allCountOfProduct[i].textContent)) + '$';
         getTotal.textContent = 'Total: ' + String(Number(getTotal.textContent?.split(':')[1].split('$')[0].trim()) - Number(arr[i].price.split('$')[0])) + '$';
@@ -281,10 +282,10 @@ const loadBasket = (): void => {
         basketData.totalProductsInBasket = Item - 1;
       };
     });
-  }); 
+  });
 
 
-  
+
 
   // listen to cancel 
 
@@ -294,11 +295,11 @@ const loadBasket = (): void => {
   .searchAndShoppingBasket__search{ display: block;}
   .main__product-card{display: none;}
   .main__basket{display: none;}`
-    const clear = <HTMLDivElement>document.querySelector('.main__basket'); 
+    const clear = <HTMLDivElement>document.querySelector('.main__basket');
     clear.innerHTML = '';
     counterInMainPg(arr);
-  }); 
-  
+  });
+
 
 }
 
