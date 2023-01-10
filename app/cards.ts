@@ -38,7 +38,7 @@ function CardProd() {
             const rating: HTMLElement | String = document.createElement('div');
             rating.className = 'products-card__rating';
             data[i][j].rating === 5 ? rating.innerHTML = `Rating: ${data[i][j].rating}/5` : rating.innerHTML = `Rating: ${data[i][j].rating}/5.0`;
-        
+
             Card.prepend(rating);
             /////////////////////////////
             const manufacrure: HTMLElement = document.createElement("div");
@@ -66,3 +66,4 @@ function CardProd() {
     console.log(data)
 }
 CardProd();
+export { CardProd, BlockProducts };
