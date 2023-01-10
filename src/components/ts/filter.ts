@@ -1,3 +1,4 @@
+
 // import { data, Products } from "../../data/data";
 // import { CardProd, BlockProducts } from "../../../app/cards";
 // const divElement = [...document.querySelectorAll<HTMLDivElement>('.products-card')!];

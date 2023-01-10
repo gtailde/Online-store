@@ -142,6 +142,7 @@
     "terser-webpack-plugin": "^5.3.6",
     "text-table": "^0.2.0",
     "to-regex-range": "^5.0.1",
+    "toolcool-range-slider": "^4.0.19",
     "ts-loader": "^9.4.2",
     "tsconfig-paths": "^4.1.1",
     "tsconfig-paths-webpack-plugin": "^4.0.0",

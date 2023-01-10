@@ -40,7 +40,15 @@ module.exports = {
         basketSet: path.resolve(__dirname, './app/basket-set.ts'),
         filter: path.resolve(__dirname, './src/components/ts/filter.ts'),
         searchCard: path.resolve(__dirname, './src/components/ts/searchCard.ts'),
-        sort: path.resolve(__dirname, './src/components/ts/sortValue.ts')
+        sort: path.resolve(__dirname, './src/components/ts/sortValue.ts'),
+        filter: path.resolve(__dirname, './src/components/ts/filter.ts')
+        Search: path.resolve(__dirname, './app/search.ts'),
+        cards: path.resolve(__dirname, './app/cards.ts'),
+        loader: path.resolve(__dirname, './app/loader.ts'),
+        listener: path.resolve(__dirname, './app/listener.ts'),
+        getElement: path.resolve(__dirname, './app/getElement.ts'),
+        productCart: path.resolve(__dirname, './app/product-cart.ts'),
+        basketSet: path.resolve(__dirname, './app/basket-set.ts')
     },
     output: {
         path: path.resolve(__dirname, './src/mainapp'),
