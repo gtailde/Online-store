@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./src/styles/product-card.css">
+    <link rel="icon" type="image/x-icon" href="./src/assets/favicon/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://kit.fontawesome.com/3d0e27e432.js"></script>
+    <link rel="stylesheet" href="./src/styles/basket.css">
+    <style></style>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <title>Online-Store</title>
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <header class="header">
+            <div class="header__container _container">
+                <h1 class="title">HOME<span>COMFORT</span></h1>
+                <div class="header__burgerMenu"></div>
+                <div class="searchAndShoppingBasket">
+                    <div class="searchAndShoppingBasket__search">
+                        <input type="text" placeholder="Please enter your text..." class="search-input">
+                        <div class="search-btn">
+                            <i class="fas fa-search"></i>
+                        </div>
+
+                        <div class="cancel-btn">
+                            <i class="fas fa-times"></i>
+                        </div>
+
+                    </div>
+                    <div class="searchAndShoppingBasket__ShoppingBasket">
+                        <span class="Basket__counter">0</span>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+
+        <main class="main">
+            <div class="main__page-block main-block">
+                <div class="main__container _container">
+                    <section class="main__filter">
+
+                        <aside class="main__filter__categories-block">
+                            <h2 class="categories">CATEGORIES</h2>
+
+                        </aside>
+
+                        <aside class="main__filter__manufactures-block">
+                            <h2 class="categories manufacturers">Manufacturers</h2>
+              <div class="main__filter__manufacturers"></div>
+
+                        </aside>
+
+                        <aside class="main__filter__price-block">
+                            <h2 class="categories manufacturers">Price</h2>
+                            <div class="dual-slider">
+
+                                <div class="slider">
+                                    <div class="progress"></div>
+                                </div>
+
+                                <div class="range-input">
+                                    <input type="range" class="range-min input-range" min="0" max="5000" value="0"
+                                        step="50">
+                                    <input type="range" class="range-max input-range" min="0" max="5000" value="5000"
+                                        step="50">
+                                </div>
+
+                                <div class="input-fields">
+                                    <input type="number" class="input-field__min price-input" value="0">
+                                    <span class="field__separator">-</span>
+                                    <input type="number" class="input-field__max price-input" value="5000">
+                                </div>
+
+                                <div class="dual-slider__min-max-val">
+                                    <span>Min</span>
+                                    <span>Max</span>
+                                </div>
+
+                            </div>
+                        </aside>
+
+                        <aside class="main__filter__stock">
+                            <h2 class="categories manufacturers">Stock</h2>
+                            <div class="dual-slider stock">
+
+                                <div class="slider">
+                                    <div class="progress stock-progress"></div>
+                                </div>
+
+                                <div class="range-input">
+                                    <input type="range" class="range-min input-range stock-slider" min="0" max="150"
+                                        value="0" step="5">
+                                    <input type="range" class="range-max input-range stock-slider" min="0" max="150"
+                                        value="150" step="5">
+                                </div>
+
+                                <div class="input-fields">
+                                    <input type="number" class="input-field__min stock-input" value="0">
+                                    <div class="input-fields__separator">-</div>
+                                    <input type="number" class="input-field__max stock-input" value="150">
+                                </div>
+
+                                <div class="dual-slider__min-max-val">
+                                    <span>Min</span>
+                                    <span>Max</span>
+                                </div>
+
+                            </div>
+                        </aside>
+
+                    </section>
+
+                    <section class="block">
+
+                        <article class="main__info-for-users">
+
+                            <div class="info-for-users__dropdown-container">
+                                <h3 class="text-for-dropdown">Sort by</h3>
+                                <nav class="dropdown">
+                                    <button class="dropdown__button">auto</button>
+                                    <ul class="dropdown__list">
+                                        <li class="dropdown__list-item active-sort" data-vale="auto">auto</li>
+                                        <li class="dropdown__list-item" data-vale="price ASC">price ASC</li>
+                                        <li class="dropdown__list-item" data-vale="price DESC">price DESC</li>
+                                        <li class="dropdown__list-item" data-vale="rating ASC">rating ASC</li>
+                                        <li class="dropdown__list-item" data-vale="rating DESC">rating DESC</li>
+                                        <li class="dropdown__list-item" data-vale="discount ASC">discount ASC</li>
+                                        <li class="dropdown__list-item" data-vale="discount DESC">discount DESC</li>
+                                    </ul>
+                                </nav>
+                            </div>
+
+                            <span class="found">Found:</span>
+                            <span class="total">Total: 0$</span>
+
+                        </article>
+
+
+                        <article class="main__block-products block-products"></article>
+                    </section>
+
+
+                </div>
+
+            </div>
+
+
+
+        </main>
+
+        <footer class="footer">
+            <section class="footer__container _container">
+
+                <h1 class="footer__title">
+                    HOME<span>COMFORT</span>
+                </h1>
+
+                <span class="footer__icons-year">©2022</span>
+
+                <div class="footer__icons-gitAndCourse">
+                    <a href="https://github.com/gtailde" class="icon">
+                        <div class="footer__iconsGit-first"></div>
+                    </a>
+                    <a href="https://rs.school/js/" class="icon">
+                        <div class="footer__iconsCourse icon"></div>
+                    </a>
+                    <a href="https://github.com/qwertytr1" class="icon">
+                        <div class="footer__iconsGit-second icon"></div>
+                    </a>
+                </div>
+
+            </section>
+        </footer>
+
+    </div>
+
+    <script src="./src/mainapp/dropdown.bundle.js"></script>
+    <script src="./src/mainapp/dualSlider.bundle.js"></script>
+    <script src="./src/mainapp/search.bundle.js"></script>
+    <script src="./src/mainapp/cards.bundle.js"></script>
+    <script src="./src/mainapp/loader.bundle.js"></script>
+    <script src="./src/mainapp/listener.bundle.js"></script>
+    <script src="./src/mainapp/getElement.bundle.js"></script>
+    <script src="./src/mainapp/productCart.bundle.js"></script>
+    <script src="./src/mainapp/basketSet.bundle.js"></script>
+    <script src="./src/mainapp/searchCard.bundle.js"></script>
+    <script src="./src/mainapp/sort.bundle.js"></script>
+    <script src="./src/mainapp/filter.bundle.js"></script>
+
+
+</body>
+
+</html>
