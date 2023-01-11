@@ -10,6 +10,8 @@ import { basketCheck } from "./basket-set";
 
 
 function CardProd() {
+    // const found = <HTMLSpanElement>document.querySelector('.found');
+    // found.textContent = `Found: ${120}`;
     for (let i = 0; i < data.length; i++) {
         for (let j = 0; j < data[i].length; j++) {
             let titleOnMass = data[i][j].title;

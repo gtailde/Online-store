@@ -2,6 +2,7 @@ import { getElement } from "./getElement";
 import { builderCartForProduct } from "./product-cart";
 import { basketAdd, basketRemove } from "./basket-set";
 import { loadBasket } from "./basket";
+import { confirm } from "./popup";
 
 const basket = document.querySelectorAll('.products-card__basket');
 const nameELem = document.querySelectorAll('.name');
@@ -22,9 +23,17 @@ document.querySelectorAll('.products-card').forEach((el, ind) => {
   });
 });
 
+
 mainBasket.addEventListener('click', target => {
   let style = <HTMLElement>document.querySelector('style');
   if(!style.textContent?.includes('.main__basket{ display: block;}')) loadBasket();
 });
+
+if(localStorage.getItem('submit') === 'true'){
+  const myTimeout = setTimeout(confirm, 1500);
+  localStorage.setItem('submit', 'false');
+
+}
+
 
 export {i, basket}

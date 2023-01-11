@@ -1,8 +1,9 @@
 import{ Products } from '../src/data/data';
 import { basketData } from './basket';
-
+import { CardProd } from './cards';
 
 let arr:Products[] = [];
+
 
 function basketAdd(obj: Products){
   arr.push(obj);
@@ -11,7 +12,6 @@ function basketAdd(obj: Products){
     obj.total = 1;
     basketData.productsCout += Number(obj.price.split('$')[0]);
     basketData.totalProductsInBasket += 1;
-     
   };
 };
 
@@ -29,6 +29,7 @@ function basketRemove(obj: Products){
 
   counterInMainPg(arr);  
 }
+
 
 let sum: number = 0;
 let Item: number = 0;

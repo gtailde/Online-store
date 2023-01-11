@@ -1,6 +1,11 @@
 import { data, allCategories, allManufacturers, Products } from "../src/data/data"
-import { confirm } from "./popup";
 import { CardProd } from "./cards";
+import { basketCheck, basketAdd, basketRemove } from "./basket-set";
+// import { basket } from "./listener";
+// import { getElement } from "./getElement";
+// import { builderCartForProduct } from "./product-cart";
+// import { index, nameELem } from "./listener";
+// import { confirm } from "./popup";
 
 const loadFilters = () => {
   const BlockProducts: HTMLElement | null = document.querySelector('.main__block-products');
@@ -12,67 +17,140 @@ const loadFilters = () => {
   let massiveName: Products[] = data.flat();
   let categEl: Products[] = [];
   let list: Products[] = [];
+
   function createCard(name: Products[]) {
+    const found = <HTMLSpanElement>document.querySelector('.found');
+    found.textContent = `Found: ${name.length > 0 ? name.length : 120}` 
     for (let i = 0; i < name.length; i++) {
-      const Card: HTMLElement = document.createElement('div');
-      Card.className = 'products-card';
-      BlockProducts?.prepend(Card);
-      /////////////////////////////
-      const cardFlex: HTMLElement = document.createElement('div');
-      cardFlex.className = 'products-card__flex';
-      Card.append(cardFlex);
-      ////////////////////////////
-      const basket: HTMLElement = document.createElement('div');
-      basket.className = 'products-card__basket';
-      cardFlex.append(basket);
-      /////////////////////////////
-      const cardPrice: HTMLElement = document.createElement('div');
-      cardPrice.className = 'products-card__price';
-      cardFlex.append(cardPrice);
+    //   const Card: HTMLElement = document.createElement('div');
+    //   Card.className = 'products-card';
+    //   BlockProducts?.prepend(Card);
+    //   /////////////////////////////
+    //   const cardFlex: HTMLElement = document.createElement('div');
+    //   cardFlex.className = 'products-card__flex';
+    //   Card.append(cardFlex);
+    //   ////////////////////////////
+    //   const basket: HTMLElement = document.createElement('div');
+    //   basket.className = 'products-card__basket';
+    //   cardFlex.append(basket);
+    //   /////////////////////////////
+    //   const cardPrice: HTMLElement = document.createElement('div');
+    //   cardPrice.className = 'products-card__price';
+    //   cardFlex.append(cardPrice);
 
-      ////////////////////////////
-      const discount: HTMLElement | String = document.createElement('div');
-      discount.className = 'discount';
-      discount.innerHTML = `-${name[i].discountPercentage}`;
-      cardPrice.prepend(discount);
-      /////////////////////////////   
+    //   ////////////////////////////
+    //   const discount: HTMLElement | String = document.createElement('div');
+    //   discount.className = 'discount';
+    //   discount.innerHTML = `-${name[i].discountPercentage}`;
+    //   cardPrice.prepend(discount);
+    //   /////////////////////////////   
 
-      const price: HTMLElement | String = document.createElement('h3');
-      price.innerHTML = `${name[i].price}`;
-      cardPrice.prepend(price);
+    //   const price: HTMLElement | String = document.createElement('h3');
+    //   price.innerHTML = `${name[i].price}`;
+    //   cardPrice.prepend(price);
 
-      /////////////////////////////
-      const rating: HTMLElement | String = document.createElement('div');
-      rating.className = 'products-card__rating';
-      if (name[i].rating === 5) {
-        rating.innerHTML = `Rating: ${name[i].rating}/5`
-      }
-      else {
-        rating.innerHTML = `Rating: ${name[i].rating}/5.0`
-      }
-      Card.prepend(rating);
-      /////////////////////////////
-      const manufacrure: HTMLElement = document.createElement("div");
-      manufacrure.className = 'products-card__manufacturer';
-      Card?.prepend(manufacrure);
-      const manufacrureName: HTMLElement | String = document.createElement('p');
-      manufacrureName.className = 'manufacturer';
-      manufacrureName.innerHTML = `Manufacrer: ${name[i].brand}`
-      manufacrure.prepend(manufacrureName);
-      ////////////////////////////////////////
-      const CardTitle: HTMLElement = document.createElement('div');
-      CardTitle.className = 'products-card__name';
-      Card?.prepend(CardTitle);
-      const Name = document.createElement('h3');
-      Name.className = 'name';
-      CardTitle?.prepend(Name);
-      Name.innerText = name[i].title;
-      ///////////////////////////
-      const Img: HTMLImageElement | String = document.createElement('img');
-      Img.className = 'products-card__img';
-      Img.src = `${name[i].img[0]}`
-      Card?.prepend(Img);
-    }
+    //   /////////////////////////////
+    //   const rating: HTMLElement | String = document.createElement('div');
+    //   rating.className = 'products-card__rating';
+    //   if (name[i].rating === 5) {
+    //     rating.innerHTML = `Rating: ${name[i].rating}/5`
+    //   }
+    //   else {
+    //     rating.innerHTML = `Rating: ${name[i].rating}/5.0`
+    //   }
+    //   Card.prepend(rating);
+    //   /////////////////////////////
+    //   const manufacrure: HTMLElement = document.createElement("div");
+    //   manufacrure.className = 'products-card__manufacturer';
+    //   Card?.prepend(manufacrure);
+    //   const manufacrureName: HTMLElement | String = document.createElement('p');
+    //   manufacrureName.className = 'manufacturer';
+    //   manufacrureName.innerHTML = `Manufacrer: ${name[i].brand}`
+    //   manufacrure.prepend(manufacrureName);
+    //   ////////////////////////////////////////
+    //   const CardTitle: HTMLElement = document.createElement('div');
+    //   CardTitle.className = 'products-card__name';
+    //   Card?.prepend(CardTitle);
+    //   const Name = document.createElement('h3');
+    //   Name.className = 'name';
+    //   CardTitle?.prepend(Name);
+    //   Name.innerText = name[i].title;
+    //   ///////////////////////////
+    //   const Img: HTMLImageElement | String = document.createElement('img');
+    //   Img.className = 'products-card__img';
+    //   Img.src = `${name[i].img[0]}`
+    //   Card?.prepend(Img);
+    // }
+    let titleOnMass = name[i].title;
+    const Card: HTMLElement = document.createElement('div');
+    Card.className = 'products-card';
+    BlockProducts?.append(Card);
+    /////////////////////////////
+    const cardFlex: HTMLElement = document.createElement('div');
+    cardFlex.className = 'products-card__flex';
+    Card.prepend(cardFlex);
+    ////////////////////////////
+    const basket: HTMLElement = document.createElement('div');
+    basketCheck(name[i]) === false ? basket.className = 'products-card__basket' : basket.className = 'products-card__basket basket__products-in-cart';
+    cardFlex.prepend(basket);
+    /////////////////////////////
+    const cardPrice: HTMLElement = document.createElement('div');
+    cardPrice.className = 'products-card__price';
+    cardFlex.prepend(cardPrice);
+
+    ////////////////////////////
+    const discount: HTMLElement | String = document.createElement('div');
+    discount.className = 'discount';
+    discount.innerHTML = `-${name[i].discountPercentage}`;
+    cardPrice.prepend(discount);
+    /////////////////////////////   
+
+    const price: HTMLElement | String = document.createElement('h3');
+    price.innerHTML = `${name[i].price}`;
+    cardPrice.prepend(price);
+
+    /////////////////////////////
+    const rating: HTMLElement | String = document.createElement('div');
+    rating.className = 'products-card__rating';
+    name[i].rating === 5 ? rating.innerHTML = `Rating: ${name[i].rating}/5` : rating.innerHTML = `Rating: ${name[i].rating}/5.0`;
+
+    Card.prepend(rating);
+    /////////////////////////////
+    const manufacrure: HTMLElement = document.createElement("div");
+    manufacrure.className = 'products-card__manufacturer';
+    Card?.prepend(manufacrure);
+    const manufacrureName: HTMLElement | String = document.createElement('p');
+    manufacrureName.className = 'manufacturer';
+    manufacrureName.innerHTML = `Manufacrer: ${name[i].brand}`
+    manufacrure.prepend(manufacrureName);
+    ////////////////////////////////////////
+    const CardTitle: HTMLElement = document.createElement('div');
+    CardTitle.className = 'products-card__name';
+    Card?.prepend(CardTitle);
+    const Name = document.createElement('h3');
+    Name.className = 'name';
+    CardTitle?.prepend(Name);
+    Name.innerText = titleOnMass;
+    ///////////////////////////
+    const Img: HTMLImageElement | String = document.createElement('img');
+    Img.className = 'products-card__img';
+    Img.src = `${name[i].img[0]}`
+    Card?.prepend(Img);  
+  }
+  
+  // document.querySelectorAll('.products-card').forEach((el, ind: number) => {
+  //   el.addEventListener('click', e => {
+  //     const getEL = getElement(`${nameELem[ind].textContent}`); 
+  //     if(e.composedPath()[0] === basket[ind]){
+  //       basket[ind].classList.toggle('products-card__in-basket');
+  //       basket[ind].className.includes('products-card__in-basket') ? basketAdd(getEL) : basketRemove(getEL);
+  //     } else {
+  //       builderCartForProduct(getEL);
+  //     };
+        
+  //   });
+  // });
+
   }//создаю карты 
 
   for (let i = 0; i < allCategories.length; i++) {//массив по созданию инпутов 
@@ -108,7 +186,7 @@ const loadFilters = () => {
 
     input.className = 'main__filter-manufacture-checkbox';
     const label: HTMLLabelElement = document.createElement('label');
-    label.className = 'main__filter-manufacture-item';
+    label.className = 'main__filter-manufacture-item main__filter-categories-item';
     createManufacturersBlock.append(label); input.textContent = allManufacturers[i];
     label.append(input);
     label.append(`${allManufacturers[i]}`)
@@ -126,5 +204,7 @@ const loadFilters = () => {
 
   getManufacturerFilter?.append(createManufacturersBlock);
 }
+
+
 
 export { loadFilters }

@@ -1,5 +1,6 @@
 import { maxSatisfying } from "semver";
 import { data, Products } from "../src/data/data";
+
 const priceInput = document.querySelectorAll<HTMLInputElement>(".price-input");
 const inputRange = document.querySelectorAll<HTMLInputElement>(".input-range");
 const BlockProducts: HTMLElement | null = document.querySelector('.main__block-products');
