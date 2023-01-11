@@ -1,5 +1,7 @@
 import{ Products } from '../src/data/data';
-import { arr, basketAdd, basketRemove } from './basket-set';
+import { arr, basketAdd, basketCheck, basketRemove } from './basket-set';
+import { loadBasket } from './basket';
+import { listenPopUp, writePopUp } from './popup';
 
 const mainBlock = document.createElement('div');
 mainBlock.className = 'main__product-card';
@@ -178,9 +180,18 @@ function builderCartForProduct(obj: Products){
     drop.classList.toggle('remove__product-from-cart');
   }); 
 
+  const clear = <HTMLDivElement>document.querySelector('.main__product-card'); 
+  const buyNow = <HTMLButtonElement>document.querySelector('.product-card__buy-now');
+  buyNow.addEventListener('click', el => {
+    if(basketCheck(obj) === false){
+      basketAdd(obj);
+    };
+    localStorage.setItem('OpenPay', 'true');
+    loadBasket();
+    clear.innerHTML = '';
+  });
   // listen to cancell 
 
-  const clear = <HTMLDivElement>document.querySelector('.main__product-card'); 
   const cancell = <HTMLDivElement>document.querySelector('.cancel__product-card');
   cancell.addEventListener('click', e => {
     style.innerHTML = `.main__page-block{ display: flex;} 

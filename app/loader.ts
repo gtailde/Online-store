@@ -1,4 +1,5 @@
 import { data, allCategories, allManufacturers } from "../src/data/data"
+import { confirm } from "./popup";
 
 const loadFilters = () => {
   const getCategoriesFilter: HTMLElement | null = document.querySelector('.main__filter__categories-block');
@@ -26,6 +27,12 @@ const loadFilters = () => {
   })
 
   getManufacturerFilter?.append(createManufacturersBlock);
+}
+
+if( localStorage.getItem('submit') === 'true'){
+  const myTimeout = setTimeout(confirm, 2500);
+  localStorage.setItem('submit', 'false');
+  console.log(localStorage.getItem('submit'))
 }
 
 export { loadFilters }

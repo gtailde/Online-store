@@ -1,4 +1,5 @@
-.main__pay-main-block {
+.main__pay-main-block,
+.confirm-block {
   position: fixed;
   top: 0;
   left: 0;
@@ -9,16 +10,17 @@
   pointer-events: none; 
   transition: 0.5s all;
   z-index: 100;
-
 }
 
-.main__pay-main-block.active { 
+.main__pay-main-block.active,
+.confirm-block.active { 
   opacity: 1; 
   pointer-events: all; 
   transition: 0.5s all;
 }
 
-.main__pay-block {
+.main__pay-block,
+.confirm {
   position: absolute;
   top: 40%;
   left: 50%;
@@ -29,7 +31,13 @@
   transition: 0.5s all;
 }
 
-.main__pay-block.active {
+.confirm{
+  width: max-content;
+  height: max-content;
+}
+
+.main__pay-block.active,
+.confirm {
   transform: translate(-50%, -50%) scale(1);
   transition: 0.5s all;
 }
@@ -158,4 +166,16 @@ input{
 
 .pay-block__close:hover{
   background-color: rgb(206, 55, 55);
+}
+
+.confirm__order{
+  width: max-content;
+  height: max-content;
+  font-size: 30px;
+  margin: 15px auto;
+  color: rgb(54, 184, 54);
+}
+
+.confirm__order:last-child{
+  color: rgb(206, 55, 55);
 }

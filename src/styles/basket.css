@@ -74,6 +74,20 @@
   justify-content: space-between;
 }
 
+.basket__page-count{
+  width: 20px;
+  text-align: center;
+}
+
+.BasketFree{
+  width: max-content;
+  /* height: 40px; */
+  text-align: center;
+  color: orange;
+  font-size: 25px;
+  margin: 10px auto;
+}
+
 .basket__page-counter{
   margin-right: 25px;
   display: flex;

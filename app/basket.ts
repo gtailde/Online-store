@@ -1,7 +1,7 @@
 import { arr, sum, counterInMainPg, Item, basketRemove } from "./basket-set";
 import { data, Products } from "../src/data/data";
 import { CardProd, BlockProducts } from "./cards";
-import { writePopUp, popup, popupBg } from "./popup";
+import { writePopUp, listenPopUp } from "./popup";
 
 const mainBasket = document.createElement('div');
 mainBasket.className = 'main__basket';  
@@ -22,6 +22,13 @@ const loadBasket = (): void => {
   if(arr.length === 0){
     basketData.productsCout = '';
     basketData.totalProductsInBasket = '';
+  }
+
+  console.log(localStorage.getItem('OpenPay'))
+  if(localStorage.getItem('OpenPay') === 'true'){
+    const myTimeout = setTimeout(listenPopUp, 600);
+    localStorage.setItem('OpenPay', 'false');
+
   }
 
   let style = <HTMLElement>document.querySelector('style');
@@ -65,9 +72,9 @@ const loadBasket = (): void => {
 
   basketPageCounter.append(btnLeft);
 
-  const pageCount = document.createElement('span');
+  const pageCount = document.createElement('input');
   pageCount.className = 'basket__page-count';
-  pageCount.textContent = `1`; // count of page;
+  pageCount.value = `1`; // count of page;
   basketPageCounter.append(pageCount);
 
   const btnRight = document.createElement('button');
@@ -158,7 +165,16 @@ const loadBasket = (): void => {
     });
   }
 
-  loadProduct(startEnd[0], startEnd[1]);
+  const free = () => {
+    const DivBasketFree = document.createElement('div');
+    DivBasketFree.className = 'BasketFree';
+    DivBasketFree.textContent = 'Please add the product to the cart';
+    productInCartBlock.append(DivBasketFree);
+  };
+
+  arr.length > 0 ? loadProduct(startEnd[0], startEnd[1]) : free();
+
+
 
   basketBlock.append(productInCartBlock);
 
@@ -197,7 +213,7 @@ const loadBasket = (): void => {
 
   const totalPrice = document.createElement('div');
   totalPrice.className = 'basket-footer__total';
-  totalPrice.textContent = `Total: ${sum }$`
+  totalPrice.textContent = `Total: ${sum}$`;
 
   dataFromCart.append(totalPrice);
 
@@ -217,43 +233,56 @@ const loadBasket = (): void => {
 
   main.append(mainBasket);
 
+  writePopUp()
+
+
   
   const buyNow = <HTMLButtonElement>document.querySelector('.basket-footer__buy-now');
   buyNow.addEventListener('click', el => {
-    console.log('click')
-    // writePopUp()
-    // popupBg.classList.add('active'); 
-    // popup.classList.add('active'); 
-  })
+    listenPopUp();
+  });
+
 
   // listen btn in header
 
-  let count = <HTMLSpanElement>document.querySelector('.basket__page-count'); 
+  const count = <HTMLInputElement>document.querySelector('.basket__page-count'); 
   const leftBasket = <HTMLButtonElement>document.querySelector('.basket__btn-left');
   const rightBasket = <HTMLButtonElement>document.querySelector('.basket__btn-right');
   const productContainer = <HTMLDivElement>document.querySelector('.basket__products-in-cart');
 
-  leftBasket.addEventListener('click', el => {
-    if(Number(count.textContent) > 1) {
+  count.addEventListener('input', el => {
+    if(count.value.length === 3) count.value = count.value.slice(0, 2);
+    if(arr.length === 0 || arr.length / Number(count.value) < 1) count.value = '1';
+
+  });
+
+  const left = () => {
+    if(Number(count.value) > 1) {
       productContainer.innerHTML = '';
       remove(count);
       startEnd[0] -= 6;
       startEnd[1] -= 6;
       loadProduct(startEnd[0], startEnd[1]);
     };
+  }
+
+  leftBasket.addEventListener('click', el => {
+    left();
   });
 
   rightBasket.addEventListener('click', target => {
-    if(Number(count.textContent) < Math.ceil(arr.length/6)){ 
+    right();
+  });
+
+  const right = () => {
+    if(Number(count.value) < Math.ceil(arr.length/6)){ 
       productContainer.innerHTML = '';
       add(count);
       startEnd[0] += 6;
       startEnd[1] += 6;
-      loadProduct(startEnd[0], startEnd[1]);
-
-      
+      loadProduct(startEnd[0], startEnd[1]); 
     }
-  });
+  }
 
   // add count of product
 
@@ -264,6 +293,8 @@ const loadBasket = (): void => {
   const getProductPrice = document.querySelectorAll('.product-in-cart__price');
   const getTotal = <HTMLDivElement>document.querySelector('.basket-footer__total');
   const countProducts = <HTMLDivElement>document.querySelector('.basket-footer__products');
+
+
 
   allBtnAddproduct.forEach((add, i) => {
     add.addEventListener('click', el => {
@@ -314,17 +345,14 @@ const loadBasket = (): void => {
     // BlockProducts.innerHTML = '';
     // CardProd();
   }); 
-  
-
-
 }
 
-const add = (count: HTMLSpanElement) => {
-  count.textContent = String(Number(count.textContent) + 1)
+const add = (count: HTMLInputElement) => {
+  count.value = String(Number(count.value) + 1)
 }
 
-const remove = (count: HTMLSpanElement) => {
-  count.textContent = String(Number(count.textContent) - 1);
+const remove = (count: HTMLInputElement) => {
+  count.value = String(Number(count.value) - 1);
 }
 
 export { loadBasket, basketData };
