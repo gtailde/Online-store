@@ -1,5 +1,7 @@
-import { arr, sum, counterInMainPg, Item } from "./basket-set";
+import { arr, sum, counterInMainPg, Item, basketRemove } from "./basket-set";
 import { data, Products } from "../src/data/data";
+import { CardProd, BlockProducts } from "./cards";
+import { writePopUp, popup, popupBg } from "./popup";
 
 const mainBasket = document.createElement('div');
 mainBasket.className = 'main__basket';  
@@ -27,7 +29,7 @@ const loadBasket = (): void => {
   .searchAndShoppingBasket__search{ display: none;}
   .main__product-card{display: none;}
   .main__basket{ display: block;}`;
-  console.log(style.textContent)
+
   const basketBlock = document.createElement('div');
   basketBlock.className = 'basket__block';
 
@@ -215,6 +217,15 @@ const loadBasket = (): void => {
 
   main.append(mainBasket);
 
+  
+  const buyNow = <HTMLButtonElement>document.querySelector('.basket-footer__buy-now');
+  buyNow.addEventListener('click', el => {
+    console.log('click')
+    // writePopUp()
+    // popupBg.classList.add('active'); 
+    // popup.classList.add('active'); 
+  })
+
   // listen btn in header
 
   let count = <HTMLSpanElement>document.querySelector('.basket__page-count'); 
@@ -268,6 +279,8 @@ const loadBasket = (): void => {
     });
   }); 
 
+  const clear = <HTMLDivElement>document.querySelector('.main__basket'); 
+
   allBtnRemoveProduct.forEach((remove, i) => {
     remove.addEventListener('click', el => {
       if(Number(allCountOfProduct[i].textContent) > 1) {
@@ -279,12 +292,14 @@ const loadBasket = (): void => {
         arr[i].total -= 1;
         basketData.productsCout = sum - Number(arr[i].price.split('$')[0]);
         basketData.totalProductsInBasket = Item - 1;
-      };
+      } else {
+        basketRemove(arr[i]);
+        counterInMainPg(arr);
+        clear.innerHTML = '';
+        loadBasket();
+      }
     });
   }); 
-
-
-  
 
   // listen to cancel 
 
@@ -294,11 +309,13 @@ const loadBasket = (): void => {
   .searchAndShoppingBasket__search{ display: block;}
   .main__product-card{display: none;}
   .main__basket{display: none;}`
-    const clear = <HTMLDivElement>document.querySelector('.main__basket'); 
     clear.innerHTML = '';
     counterInMainPg(arr);
+    // BlockProducts.innerHTML = '';
+    // CardProd();
   }); 
   
+
 
 }
 

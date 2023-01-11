@@ -239,6 +239,29 @@ body {
     height: max-content;
 }
 
+.main__filters-reset-copy-block{
+    height: max-content;
+    width: 100%;
+    /* background-color: red; */
+    display: flex;
+    justify-content: space-between;
+}
+
+.reset-filters,
+.copy-link{
+    color: white;
+    background-color: rgb(160, 160, 160);
+    height: max-content;
+    padding: 6px;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.reset-filters:hover,
+.copy-link:hover{
+    background-color: grey;
+}
+
 .main__filter h2 {
     font-size: 20px;
     font-weight: 700;

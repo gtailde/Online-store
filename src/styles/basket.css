@@ -240,12 +240,16 @@
 .basket-footer__buy-now{
   width: 120px;
   height: 40px;
-  background-color: red;
+  background-color:  rgb(221, 107, 107);
   border-radius: 5px;
   margin-right: 20px;
   text-transform: uppercase;
   color: white;
   cursor: pointer;
+}
+
+.basket-footer__buy-now:hover{
+  background-color: rgb(206, 55, 55);
 }
 
 .basket-footer__data-from-cart{
