@@ -1,8 +1,10 @@
 import { data, allCategories, allManufacturers } from "../src/data/data";
-const BlockProducts: HTMLElement | null = document.querySelector('.main__block-products');
+const BlockProducts = <HTMLElement>document.querySelector('.main__block-products');
 import { loadFilters } from "./loader";
+import { basketCheck } from "./basket-set";
 
-loadFilters()
+loadFilters();
+
 function CardProd() {
     for (let i = 0; i < data.length; i++) {
         for (let j = 0; j < data[i].length; j++) {
@@ -16,7 +18,7 @@ function CardProd() {
             Card.prepend(cardFlex);
             ////////////////////////////
             const basket: HTMLElement = document.createElement('div');
-            basket.className = 'products-card__basket';
+            basketCheck(data[i][i]) === false ? basket.className = 'products-card__basket' : basket.className = 'products-card__basket basket__products-in-cart';
             cardFlex.prepend(basket);
             /////////////////////////////
             const cardPrice: HTMLElement = document.createElement('div');

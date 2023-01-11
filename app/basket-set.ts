@@ -51,4 +51,12 @@ function counterInMainPg(arr:Products[]){
 
 }
 
-export { basketAdd, basketRemove, arr, sum, counterInMainPg, Item }
+const basketCheck = (obj: Products) => {
+  let checkedResult:Boolean = false;
+  arr.forEach((val, i) => {
+    val.title === obj.title ? checkedResult = true : i;
+  });
+  return checkedResult;
+};
+
+export { basketAdd, basketRemove, arr, sum, counterInMainPg, Item, basketCheck }

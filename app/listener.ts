@@ -3,10 +3,10 @@ import { builderCartForProduct } from "./product-cart";
 import { basketAdd, basketRemove } from "./basket-set";
 import { loadBasket } from "./basket";
 
-
 const basket = document.querySelectorAll('.products-card__basket');
 const nameELem = document.querySelectorAll('.name');
 const mainBasket = <HTMLDivElement>document.querySelector('.searchAndShoppingBasket__ShoppingBasket');
+let i:number;
 
 document.querySelectorAll('.products-card').forEach((el, ind) => {
   el.addEventListener('click', e => {
@@ -16,6 +16,7 @@ document.querySelectorAll('.products-card').forEach((el, ind) => {
       basket[ind].className.includes('products-card__in-basket') ? basketAdd(getEL) : basketRemove(getEL);
     } else {
       builderCartForProduct(getEL);
+      i = ind;
     };
       
   });
@@ -25,3 +26,5 @@ mainBasket.addEventListener('click', target => {
   let style = <HTMLElement>document.querySelector('style');
   if(!style.textContent?.includes('.main__basket{ display: block;}')) loadBasket();
 });
+
+export {i, basket}

@@ -174,6 +174,7 @@ function builderCartForProduct(obj: Products){
       drop.textContent = 'Remove from cart';
       basketAdd(obj);
     };
+
     drop.classList.toggle('remove__product-from-cart');
   }); 
 
@@ -185,7 +186,7 @@ function builderCartForProduct(obj: Products){
     style.innerHTML = `.main__page-block{ display: flex;} 
     .searchAndShoppingBasket__search{ display: block;}
     .main__product-card{display: none;}
-    .main__basket{display: none;}`
+    .main__basket{display: none;}`;
     clear.innerHTML = '';
   });
   

@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="https://kit.fontawesome.com/3d0e27e432.js"></script>
     <link rel="stylesheet" href="./src/styles/basket.css">
+    <link rel="stylesheet" href="./src/styles/pay.css">
     <style></style>
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Roboto:wght@100;300;400;500;700;900&display=swap"
@@ -50,9 +51,12 @@
             <div class="main__page-block main-block">
                 <div class="main__container _container">
                     <section class="main__filter">
-
+                        <div class="main__filters-reset-copy-block">
+                            <button class="reset-filters">Reset filters</button>
+                            <button class="copy-link">Copy link</button>
+                        </div>
                         <aside class="main__filter__categories-block">
-                            <h2 class="categories">CATEGORIES</h2>
+                            <h2 style="margin-top: 15px;" class="categories">CATEGORIES</h2>
                         </aside>
 
                         <aside class="main__filter__manufactures-block">
@@ -150,6 +154,37 @@
 
                 </div>
 
+                <!-- <div class="main__pay-main-block">
+                    <div class="main__pay-block">
+                        <h3 class="pay-block__personal-details-title">Peronal details</h3>
+                        <input type="text" class="pay-block__name-inp pay-inp" placeholder="Name and Surname">
+                        <input type="text" class="pay-block__phone-inp pay-inp" placeholder="Phone number">
+                        <input type="text" class="pay-block__delivery pay-inp" placeholder="Delivery address">
+                        <input type="email" class="pay-block__email pay-inp" placeholder="Email">
+                        <div class="pay-block__card-info">
+                            <input type="number" class="pay-block__card-number" placeholder="XXXX XXXX XXXX XXXX">
+                            <div class="pay-block__card-type-img"></div>
+                            <div class="pay-block__info-about-cart">
+                                <div class="pay-block__card-month-year-block">
+                                    <h3 class="pay-block__month-year-title">MM/YY</h3>
+                                    <input type="text" placeholder="MM/YY" class="pay-block__date-inp">
+                                </div>
+
+                                <div class="pay-block__card-CVV-block">
+                                    <h3 class="pay-block__CVV-title">CVV</h3>
+                                    <input type="number" class="pay-block__cvv-inp" placeholder="CVV">
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="pay-block__footer-btns-block">
+                            <button class="pay-block__submit">Submit</button>
+                            <button class="pay-block__close">Close</button>
+                        </div>
+                    </div>
+
+                </div> -->
+
             </div>
 
 
@@ -193,6 +228,7 @@
     <script src="./src/mainapp/searchCard.bundle.js"></script>
     <script src="./src/mainapp/sort.bundle.js"></script>
     <script src="./src/mainapp/filter.bundle.js"></script>
+    <script src="/src/mainapp/popup.bundle.js"></script>
 
 </body>
 
