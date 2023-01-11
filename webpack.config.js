@@ -40,7 +40,8 @@ module.exports = {
         basketSet: path.resolve(__dirname, './app/basket-set.ts'),
         searchCard: path.resolve(__dirname, './src/components/ts/searchCard.ts'),
         sort: path.resolve(__dirname, './src/components/ts/sortValue.ts'),
-        filter: path.resolve(__dirname, './src/components/ts/filter.ts')
+        filter: path.resolve(__dirname, './src/components/ts/filter.ts'),
+        valueAndStockFilter: path.resolve(__dirname, './app/value-and-stock.ts')
     },
     output: {
         path: path.resolve(__dirname, './src/mainapp'),
