@@ -41,7 +41,11 @@ module.exports = {
         searchCard: path.resolve(__dirname, './src/components/ts/searchCard.ts'),
         sort: path.resolve(__dirname, './src/components/ts/sortValue.ts'),
         filter: path.resolve(__dirname, './src/components/ts/filter.ts'),
+
+        valueAndStockFilter: path.resolve(__dirname, './app/value-and-stock.ts'),
+
         popup: path.resolve(__dirname, './app/popup.ts'),
+
     },
     output: {
         path: path.resolve(__dirname, './src/mainapp'),

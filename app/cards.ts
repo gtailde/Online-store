@@ -1,9 +1,13 @@
 import { data, allCategories, allManufacturers } from "../src/data/data";
 const BlockProducts = <HTMLElement>document.querySelector('.main__block-products');
 import { loadFilters } from "./loader";
+
+import { search } from "../src/components/ts/sortValue";
+search();
+loadFilters()
+
 import { basketCheck } from "./basket-set";
 
-loadFilters();
 
 function CardProd() {
     for (let i = 0; i < data.length; i++) {
@@ -40,7 +44,7 @@ function CardProd() {
             const rating: HTMLElement | String = document.createElement('div');
             rating.className = 'products-card__rating';
             data[i][j].rating === 5 ? rating.innerHTML = `Rating: ${data[i][j].rating}/5` : rating.innerHTML = `Rating: ${data[i][j].rating}/5.0`;
-        
+
             Card.prepend(rating);
             /////////////////////////////
             const manufacrure: HTMLElement = document.createElement("div");
