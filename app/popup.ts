@@ -173,6 +173,20 @@ const listenPopUp = () => {
   const btnClose = <HTMLButtonElement>document.querySelector('.pay-block__close');
   const submit = <HTMLButtonElement>document.querySelector('.pay-block__submit');
   const phone = <HTMLInputElement>document.querySelector('.pay-block__phone-inp');
+  const cardInp = <HTMLInputElement>document.querySelector('.pay-block__card-number');
+  const cardType = <HTMLElement>document.querySelector('.pay-block__card-type-img');
+
+  cardInp.addEventListener('input', e => {
+    if(cardInp.value[0] === '3'){
+      cardType.setAttribute("style", "background-image: url(./src/assets/icons/american-express.jpg); background-size: 100%; background-position: top;");
+    }else if(cardInp.value[0] === '4'){
+      cardType.setAttribute("style", "background-image: url(./src/assets/icons/visa.png); background-size: 100%; background-position: top;");
+    }else if(cardInp.value[0] === '5'){
+      cardType.setAttribute("style", "background-image: url(./src/assets/icons/mastercard.jpg); background-size: 100%; background-: top;");
+    }else{
+      cardType.removeAttribute('style');
+    };
+  });
 
   popupBg.classList.add('active');
   popup.classList.add('active');
